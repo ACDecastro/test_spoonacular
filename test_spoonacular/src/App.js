@@ -8,7 +8,7 @@ function App() {
   const apiKey = 'd8de6f34acff4ea89755be40ac8a5ca7';
   function searchMeals() {
     fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=pasta&number=2`
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=pasta&addRecipeInformation=true&number=2`
     )
       .then((response) => response.json())
       .then((data) => {
