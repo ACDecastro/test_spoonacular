@@ -1,14 +1,16 @@
 import './App.css';
 import React, { useState } from "react";
 
+
 function App() {
   //const [searchData, setSearchData] = useState(null);
   //const [calories, setCalories] = useState(2000);
   //const apiKey = 'bb4c5730e058484aa07a4015606a1922';
   const apiKey = 'd8de6f34acff4ea89755be40ac8a5ca7';
   function searchMeals() {
+    const numberOfResults = 2;
     fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=pasta&addRecipeInformation=true&number=2`
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=pasta&addRecipeInformation=true&number=${numberOfResults}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -32,11 +34,41 @@ function App() {
         console.log("error");
       });
   }
+
+  function searchWithIntolerances() {
+    const numberOfResults = 2;
+    fetch(
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=pasta&intolerances=seafood,dairy&addRecipeInformation=true&number=${numberOfResults}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch(() => {
+        console.log("error");
+      });
+  }
+
+  function searchWithDiets() {
+    const numberOfResults = 2;
+    fetch(
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=pasta&diet=vegan&addRecipeInformation=true&number=${numberOfResults}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch(() => {
+        console.log("error");
+      });
+  }
   
   return (
     <div>
       <button onClick={searchMeals}>Search for pasta</button>
+      <button onClick={searchWithIntolerances}>Search for pasta that doesn't contain seafood or dairy</button>
       <button onClick={getRecipe}>Get Pasta and Vegetable Soup</button>
+      <button onClick={searchWithDiets}>Search Vegan Soup</button>
     </div>
   );
 }
