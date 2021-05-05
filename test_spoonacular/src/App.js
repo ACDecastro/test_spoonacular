@@ -67,6 +67,7 @@ function App() {
   
   return (
     <div>
+      <h1>Open up your console!</h1>
       <button onClick={searchMeals}>Search for pasta</button>
       <button onClick={searchWithIntolerances}>Search for pasta that doesn't contain seafood or dairy</button>
       <button onClick={getRecipe}>Get Pasta and Vegetable Soup</button>
