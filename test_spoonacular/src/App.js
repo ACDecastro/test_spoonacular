@@ -37,7 +37,7 @@ function App() {
 
   function searchWithIntolerances() {
     const numberOfResults = 2;
-    const intolerances ="seafood,dairy"
+    const intolerances ="seafood,dairy" //Comma-separated list of intolerances. See https://spoonacular.com/food-api/docs#Intolerances
     fetch(
       `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=pasta&intolerances=${intolerances}&addRecipeInformation=true&number=${numberOfResults}`
     )
@@ -52,7 +52,7 @@ function App() {
 
   function searchWithDiets() {
     const numberOfResults = 2;
-    const diet = "vegan"
+    const diet = "vegan" //See https://spoonacular.com/food-api/docs#Diets
     fetch(
       `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=pasta&diet=${diet}&addRecipeInformation=true&number=${numberOfResults}`
     )
